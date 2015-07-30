@@ -3,9 +3,10 @@ Generates sets of numbers satisfying a Hamming distance, for building good Zobri
 
 ## Usage
 ```
+$ zobrist-gen --help
 zobrist-gen 0.1 by Eduardo ES Riccardi (https://github.com/kuking/zorbist-gen)
 Usage: zobrist-gen [options]
-       zobrist-gen (-h | --help)
+       zobrist-gen --help
 
 Options: -b <nbits>  Bits to generate in the output, default 64
          -l <min>    Minimum number of different bits between all generated numbers numbers
@@ -18,8 +19,10 @@ Options: -b <nbits>  Bits to generate in the output, default 64
           or: zobrist-gen -b 16 -l 5 -u 12 -q 243
 ```
 
-### output
+### Output
 ````
+$ zobrist-gen
+zobrist-gen 0.1 by Eduardo ES Riccardi (https://github.com/kuking/zorbist-gen)
 Generating 64 bits numbers with a Hamming distance between 20 and 45.
     0] 0011001100001101001101000111101001111010010010101001101010011010 [0.0%
     1] 0100010111101111100011011101101010001111100100010001011000001000 [0.1%
