@@ -1,0 +1,8 @@
+[dependencies]
+docopt = "0.6.*"
+rand = "0.3.9"
+
+[package]
+name = "zorbist-gen"
+version = "0.1.0"
+authors = ["Eduardo ES Riccardi <ed@kukino.uk>"]
