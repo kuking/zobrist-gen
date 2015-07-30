@@ -14,7 +14,7 @@ use rand::Rng;
 */
 
 static VERSION: &'static str =
-    "zobrist-gen 0.1 by Eduardo ES Riccardi (https://github.com/kuking/zorbist-gen)";
+    "zobrist-gen 0.1 by Eduardo ES Riccardi (https://github.com/kuking/zobrist-gen)";
 
 static USAGE: &'static str = "
 Usage: zobrist-gen [options]
