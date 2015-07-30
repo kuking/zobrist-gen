@@ -1,5 +1,18 @@
 # zobrist-gen [<img src="https://travis-ci.org/kuking/zobrist-gen.svg?branch=master">](https://travis-ci.org/kuking/zobrist-gen)
-Generates sets of numbers satisfying a Hamming distance, for building good Zobrist hashes
+Generates sets of numbers satisfying a Hamming distance, for building good Zobrist hashes. For more information you can read the Wikipedia page on [Zobrish hashes](https://en.wikipedia.org/wiki/Zobrist_hashing) and the page on [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance).
+
+In a nutshell, Zobrist hashes are built by XORing sequences of numbers; each
+number represent a portion of the state, by XORing all the parts together we obtain
+an unique-ish number, a hash for the state built by the sum of all the sub-states.
+
+Because `a xor a = 0`, we want the numbers utilised as keys to be _as different
+as possible_ so we don't risk generating hashes with many 0 bits, but **not too different** as we would run out of possible numbers (difference in bits composing
+the numbers).
+
+Therefore, the bit-wise difference between any given two numbers used for hashing should as different as possible, but not too different or it would be impossible to
+find all the required numbers. (i.e. it is impossible to generate 127 numbers
+of 8 bits with a minimum Hamming distance of 7, there is only 8 possible numbers:
+`00000001, 00000010, ... 11111111.`)
 
 ## Usage
 ```
