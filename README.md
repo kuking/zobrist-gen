@@ -1,18 +1,17 @@
 # zobrist-gen [<img src="https://travis-ci.org/kuking/zobrist-gen.svg?branch=master">](https://travis-ci.org/kuking/zobrist-gen)
-Generates sets of numbers satisfying a Hamming distance, for building good Zobrist hashes. For more information you can read the Wikipedia page on [Zobrish hashes](https://en.wikipedia.org/wiki/Zobrist_hashing) and the page on [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance).
+Generates sets of numbers satisfying a Hamming distance range for building good Zobrist hashes. For more information you can read the Wikipedia page on [Zobrish hashes](https://en.wikipedia.org/wiki/Zobrist_hashing) and the page on [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance).
 
 In a nutshell, Zobrist hashes are built by XORing sequences of numbers; each
-number represent a portion of the state, by XORing all the parts together we obtain
-an unique-ish number, a hash for the state built by the sum of all the sub-states.
+number represent a portion of the state, by XORing all the parts together we
+obtain an unique-ish number, a hash for the state built by the sum of all the sub-states.
 
 Because `a xor a = 0`, we want the numbers utilised as keys to be _as different
-as possible_ so we don't risk generating hashes with many 0 bits, but **not too different** as we would run out of possible numbers (difference in bits composing
-the numbers).
+as possible_ so we don't risk generating hashes with many 0 bits (or 1s), but
+**not too different** as we would run out of possible numbers (bitwise difference)
 
-Therefore, the bit-wise difference between any given two numbers used for hashing should as different as possible, but not too different or it would be impossible to
-find all the required numbers. (i.e. it is impossible to generate 127 numbers
-of 8 bits with a minimum Hamming distance of 7, there is only 8 possible numbers:
-`00000001, 00000010, ... 11111111.`)
+i.e. It is impossible to generate 127 numbers of 8 bits with a minimum Hamming
+distance of 8, there are only 8 possible numbers: `00000001, 00000010, ...
+1000000.`).
 
 ## Usage
 ```
@@ -50,8 +49,8 @@ Generating 64 bits numbers with a Hamming distance between 20 and 45.
  1082] 1011000110001100100111001100110011110111111101111110110110101101 [99.9%
 
 >-+
- | Friendly for your favourite compiler:
- +--------------------------------------->
+  | Friendly for your favourite compiler:
+  +--------------------------------------->
 
 0x330d347a7a4a9a9a, 0x45ef8dda8f911608, 0x5c285ce62db628a7, 0x442530694d7370b9,
 0x6f374b2231194ce4, 0x6205cfae8e9e798d, 0x13e8fcfa3c3b5751, 0x9144cb5fb4d33bc2,
