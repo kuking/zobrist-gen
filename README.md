@@ -13,12 +13,13 @@ also, the numbers _should not be too different_ as we might not be able to
 generate the desired set of numbers (bitwise difference).
 
 There is a balance to be found here. i.e. It is impossible to generate a set of
-more than 8 numbers of 8 bits with a maximum Hamming distance of 1:
+more than 8 numbers of 8 bits with a maximum Hamming distance of 2:
 `00000001, 00000010, ... 1000000.` (a set with absolute no collision), and even
 less for minimum Hamming distance of 7 (only 2).
 
 At the end of the process, there is a sanity check that will try to find a
-sequences of `n` numbers that will generate a xor value of 0. By finding this sequence, we have found the sequence of `n-1` elements that will produce the
+sequences of `n` numbers that will generate a xor value of 0. By finding this
+sequence, we have found the sequence of `n-1` elements that will produce the
 `n` element; therefore rendering its result to `0` (because `a ⊕ a = 0 ∀ a`).
 If the sets of numbers have a finite (and relatively short) sequence producing
 a cycle, it is not a good set of numbers and we want to avoid them. Choosing
