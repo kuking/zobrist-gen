@@ -31,7 +31,7 @@ zobrist-gen 0.1 by Eduardo ES Riccardi (https://github.com/kuking/zorbist-gen)
 Usage: zobrist-gen [options]
        zobrist-gen --help
 
-Options: -b <nbits>  Bits to generate in the output, default 64
+Options: -b <nbits>  Bits to generate in the output - default 64
          -l <min>    Minimum number of different bits between all generated numbers numbers
                      (Hamming distance) - default 20
          -u <max>    Maximum Hamming distance between values - default 45
