@@ -35,11 +35,11 @@ Options: -b <nbits>  Bits to generate in the output - default 64
          -l <min>    Minimum number of different bits between all generated numbers numbers
                      (Hamming distance) - default 20
          -u <max>    Maximum Hamming distance between values - default 45
-         -q <qty>    Quantity of numbers to generate - default 1083
+         -q <qty>    Quantity of numbers to generate - default 722
 
-         i.e. zobrist-gen -b 32 -l 10 -u 24 -q 1083
-          or: zobrist-gen -b 128 -l 40 -u 90 -q 1083
-          or: zobrist-gen -b 16 -l 5 -u 12 -q 243
+         i.e. zobrist-gen -b 32 -l 10 -u 24 -q 722
+          or: zobrist-gen -b 128 -l 40 -u 90 -q 722
+          or: zobrist-gen -b 16 -l 5 -u 12 -q 162
 ```
 
 ### Output
@@ -57,7 +57,9 @@ Generating 64 bits numbers with a Hamming distance between 20 and 45.
     7] 1001000101000100110010110101111110110100110100110011101111000010 [0.6%
     8] 0100010101101011001010100100010010010000100000011001000001010011 [0.7%
 [truncated]
- 1082] 1011000110001100100111001100110011110111111101111110110110101101 [99.9%
+  719] 1110100100001111100111010010100100000100001010011111100110000111 [99.6%
+  720] 0010110101011000001100000000000100110001010011011001000001011010 [99.7%
+  721] 0010101011101110011010110010010101101110010010010000110111010010 [99.9%
 
 >-+
   | Friendly for your favourite compiler:

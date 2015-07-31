@@ -24,11 +24,11 @@ Options: -b <nbits>  Bits to generate in the output - default 64
          -l <min>    Minimum number of different bits between all generated numbers numbers
                      (Hamming distance) - default 20
          -u <max>    Maximum Hamming distance between values - default 45
-         -q <qty>    Quantity of numbers to generate - default 1083
+         -q <qty>    Quantity of numbers to generate - default 722
 
-         i.e. zobrist-gen -b 32 -l 10 -u 24 -q 1083
-          or: zobrist-gen -b 128 -l 40 -u 90 -q 1083
-          or: zobrist-gen -b 16 -l 5 -u 12 -q 243
+         i.e. zobrist-gen -b 32 -l 10 -u 24 -q 722
+          or: zobrist-gen -b 128 -l 40 -u 90 -q 722
+          or: zobrist-gen -b 16 -l 5 -u 12 -q 162
 ";
 
 pub fn gen_random(bits :usize) -> Vec<bool> {
@@ -217,7 +217,7 @@ fn parse_params() -> (usize, usize, usize, usize) {
    let qty;
    match args.get_str(&"-q").parse::<usize>() {
        Ok(qty_p)  => qty = qty_p,
-       Err(_)     => qty = 1083
+       Err(_)     => qty = 722
    }
 
    if bits_min >= bits {
