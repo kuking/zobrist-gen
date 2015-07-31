@@ -3,15 +3,26 @@ Generates sets of numbers satisfying a Hamming distance range for building good 
 
 In a nutshell, Zobrist hashes are built by XORing sequences of numbers; each
 number represent a portion of the state, by XORing all the parts together we
-obtain an unique-ish number, a hash for the state built by the sum of all the sub-states.
+obtain an unique-ish number representing the state; hopefully without much
+collisions.
 
-Because `a xor a = 0`, we want the numbers utilised as keys to be _as different
-as possible_ so we don't risk generating hashes with many 0 bits (or 1s), but
-**not too different** as we would run out of possible numbers (bitwise difference)
+Because `a ⊕ a = 0 ∀ a`, we want the numbers utilised as keys to be _as different
+as possible_ so we don't risk generating hashes with many 0 bits (or 1s)
+and by doing so building hashes prone to having a high rate of collisions;
+also, the numbers _should not be too different_ as we might not be able to
+generate the desired set of numbers (bitwise difference).
 
-i.e. It is impossible to generate 127 numbers of 8 bits with a minimum Hamming
-distance of 8, there are only 8 possible numbers: `00000001, 00000010, ...
-1000000.`).
+There is a balance to be found here. i.e. It is impossible to generate a set of
+more than 8 numbers of 8 bits with a maximum Hamming distance of 1:
+`00000001, 00000010, ... 1000000.` (a set with absolute no collision), and even
+less for minimum Hamming distance of 7 (only 2).
+
+At the end of the process, there is a sanity check that will try to find a
+sequences of `n` numbers that will generate a xor value of 0. By finding this sequence, we have found the sequence of `n-1` elements that will produce the
+`n` element; therefore rendering its result to `0` (because `a ⊕ a = 0 ∀ a`).
+If the sets of numbers have a finite (and relatively short) sequence producing
+a cycle, it is not a good set of numbers and we want to avoid them. Choosing
+a good Hamming range should be enough.
 
 ## Usage
 ```
